@@ -7,6 +7,8 @@ jobs:
 
      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
 
+     - run: THETAG=$(git describe --tags --abbrev=0) && export THETAG
+
      - run: 
         name: 'Build images and a wee test'
         command: |
