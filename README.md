@@ -18,16 +18,16 @@ This repo is put through [CircleCI](https://circleci.com) for automated building
 
 To start using this we can directly shell into the container, mounting the current working directory in the container also. Finally we remove the container when we exit or finish.
 
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 bash`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development bash`
 
 ### Commands
 
 We can also run a single command through the container, ideal for creating alias or helper scripts.
 
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 php -v`
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 node -v`
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 composer --version`
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 wp --allow-root --version`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development php -v`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development node -v`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development composer --version`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development wp --allow-root --version`
 
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 composer install`
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 yarn install`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development composer install`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development yarn install`
