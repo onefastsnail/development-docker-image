@@ -16,4 +16,5 @@ jobs:
      - run: docker run -it --rm onefastsnail/development:$CIRCLE_TAG composer --version
      - run: docker run -it --rm onefastsnail/development:$CIRCLE_TAG wp --allow-root --version
 
+     - run: docker push onefastsnail/development:latest
      - run: docker push onefastsnail/development:$CIRCLE_TAG
