@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/onefastsnail/development-docker-image.svg?style=svg)](https://circleci.com/gh/onefastsnail/development-docker-image)
+
 # Development Docker Image
 
 A wee [Docker](https://www.docker.com/) image i use during development to help keep my host machine clean of libaries and tools. This approach also helps keep a consistent set of development tools across a development team and machines.
