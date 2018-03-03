@@ -2,7 +2,9 @@
 
 # Development Docker Image
 
-A wee [Docker](https://www.docker.com/) image i use during development to help keep my host machine clean of libaries and tools. This approach also helps keep a consistent set of development tools across a development team and machines.
+A wee [Docker](https://www.docker.com/) image i created for development to help keep my host machine clean of libaries and tools. This approach also helps keep a consistent set of development tools across a development team and machines.
+
+This repo is put through [CircleCI](https://circleci.com) for automated building, testing and deployment to [Dockerhub](https://hub.docker.com/r/onefastsnail/development).
 
 ## What's inside
 
@@ -25,6 +27,7 @@ We can also run a single command through the container, ideal for creating alias
 * `docker run -it --rm -v $(pwd):/app onefastsnail/development php -v`
 * `docker run -it --rm -v $(pwd):/app onefastsnail/development node -v`
 * `docker run -it --rm -v $(pwd):/app onefastsnail/development composer --version`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development wp --allow-root --version`
 
 * `docker run -it --rm -v $(pwd):/app onefastsnail/development composer install`
 * `docker run -it --rm -v $(pwd):/app onefastsnail/development yarn install`

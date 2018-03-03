@@ -10,10 +10,10 @@ jobs:
      - run: docker build -t onefastsnail/development:$CIRCLE_BRANCH .
 
      # some very basic test commands of the packages we should installed
-     - run: docker run -it --rm onefastsnail/development node -v
-     - run: docker run -it --rm onefastsnail/development yarn -v
-     - run: docker run -it --rm onefastsnail/development php -v
-     - run: docker run -it --rm onefastsnail/development composer --version
-     - run: docker run -it --rm onefastsnail/development wp --allow-root --version
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH node -v
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH yarn -v
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH php -v
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH composer --version
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH wp --allow-root --version
 
      - run: docker push onefastsnail/development:$CIRCLE_BRANCH
