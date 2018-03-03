@@ -2,7 +2,7 @@
 
 # Development Docker Image
 
-A wee [Docker](https://www.docker.com/) image i created for development to help keep my host machine clean of libaries and tools. This approach also helps keep a consistent set of development tools across a development team and machines.
+A [Docker](https://www.docker.com/) image i created for development to help keep my host machine clean of libaries and tools. This approach also helps keep a consistent set of development tools across a development team and machines.
 
 This repo is put through [CircleCI](https://circleci.com) for automated building, testing and deployment to [Dockerhub](https://hub.docker.com/r/onefastsnail/development).
 
