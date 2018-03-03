@@ -7,13 +7,13 @@ jobs:
 
      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-     - run: docker build -t onefastsnail/development:$CIRCLE_BRANCH .
+     - run: docker build -t onefastsnail/development:$CIRCLE_TAG -t onefastsnail/development:latest .
 
      # some very basic test commands of the packages we should installed
-     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH node -v
-     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH yarn -v
-     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH php -v
-     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH composer --version
-     - run: docker run -it --rm onefastsnail/development:$CIRCLE_BRANCH wp --allow-root --version
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_TAG node -v
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_TAG yarn -v
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_TAG php -v
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_TAG composer --version
+     - run: docker run -it --rm onefastsnail/development:$CIRCLE_TAG wp --allow-root --version
 
-     - run: docker push onefastsnail/development:$CIRCLE_BRANCH
+     - run: docker push onefastsnail/development:$CIRCLE_TAG
