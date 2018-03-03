@@ -5,12 +5,12 @@ jobs:
    steps:
      - checkout
 
-     - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-
-     - run: THETAG=$(git describe --tags --abbrev=0) && export THETAG
+     - run: 
+        name: 'Login to Dockhub'
+        command: docker login -u $DOCKER_USER -p $DOCKER_PASS
 
      - run: 
-        name: 'Build images and a wee test'
+        name: 'Build image and run basic tests'
         command: |
           THETAG=$(git describe --tags --abbrev=0)
           docker build -t onefastsnail/development:$THETAG -t onefastsnail/development:latest .

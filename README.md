@@ -2,9 +2,9 @@
 
 # Development Docker Image
 
-A [Docker](https://www.docker.com/) image i created for development to help keep my host machine clean of libaries and tools. This approach also helps keep a consistent set of development tools across a development team and machines.
+A [Docker](https://www.docker.com/) image to run development commands and tools through. This helps keep the host machine clean of libaries, tools and their numerous versions and also helps keep a consistent set of development tools across a development team and machines.
 
-This repo is put through [CircleCI](https://circleci.com) for automated building, testing and deployment to [Dockerhub](https://hub.docker.com/r/onefastsnail/development).
+This repository is put through [CircleCI](https://circleci.com) for automated building, testing and deployment to [Dockerhub](https://hub.docker.com/r/onefastsnail/development).
 
 ## What's inside
 
@@ -16,18 +16,34 @@ This repo is put through [CircleCI](https://circleci.com) for automated building
 
 ## Usage
 
-To start using this we can directly shell into the container, mounting the current working directory in the container also. Finally we remove the container when we exit or finish.
+To start using this we can directly bash into the container, mounting the current working directory into the container also. This way, we have access to the project and its dependencies such as `node_modules` and `vendor` packages. Finally we remove the container when we exit or finish, making it disposable.
 
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 bash`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development bash`
 
 ### Commands
 
-We can also run a single command through the container, ideal for creating alias or helper scripts.
+We can also run a single command through the container, ideal for creating alias or helper scripts for common tasks.
 
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 php -v`
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 node -v`
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 composer --version`
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 wp --allow-root --version`
+#### Node / Yarn
 
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 composer install`
-* `docker run -it --rm -v $(pwd):/app onefastsnail/development:1.0.0 yarn install`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development node -v`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development yarn install`
+
+#### PHP
+
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development php -v`
+
+#### MySQL
+
+Assuming you have a container named `mydb`.
+
+* `docker run -it --rm -v $(pwd):/app --link mydb onefastsnail/development mysql --host=mydb --user=root --password=pass`
+
+#### Composer
+
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development composer --version`
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development composer install`
+
+#### WP CLI
+
+* `docker run -it --rm -v $(pwd):/app onefastsnail/development wp --allow-root --version`
